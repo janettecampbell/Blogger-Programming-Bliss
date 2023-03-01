@@ -14,7 +14,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow&display=swap");
 
 html {
-  --containerWidth: 95vw;
+  --containerWidth: 60vw;
+  --mobileContainerWidth: 95vw;
   scroll-padding-top: 123px;
 }
 
@@ -101,7 +102,7 @@ ul {
 }
 
 .secondary-navbar-section {
-  width: var(--containerWidth)-306px;
+  width: var(--containerWidth) - 306px;
   margin: 0 auto;
   display: flex;
   box-sizing: border-box;
@@ -151,6 +152,7 @@ ul {
 .BlogSearch.visible {
   opacity: 1;
   pointer-events: auto;
+  backdrop-filter: blur(10px);
 }
 
 .BlogSearch input[type="text"] {
@@ -866,8 +868,8 @@ body.label-view .blog-container .post-outer .search-post-body p:nth-of-type(1) {
   list-style-type:none;
 }
 .mbtlist li {
-  width: 95vw;
-  min-width: 600px;
+  width: var(--containerWidth);
+
   display: flex;
   margin-bottom: 40px;
   border-radius: 10px;
@@ -1031,6 +1033,81 @@ font-weight: bold;
 }
 
 /* MOBILE VIEW */
+
+@media screen and (min-width: 884px) and (max-width: 1000px) {
+
+  /* POPULAR POSTS HOME PAGE */
+
+  .PopularPosts .widget-content {
+	margin: 100px auto 40px auto;
+    width: var(--mobileContainerWidth);
+  }
+
+  /* RECENT POSTS HOME PAGE */
+
+  .recent-post-card .widget-content {
+    width: var(--mobileContainerWidth);
+  }
+  
+  .recent-posts {
+    width: var(--mobileContainerWidth);
+  }
+
+  .mbtlist li {
+	display: inline-block;
+    min-width: unset;
+	width: unset;
+	margin: 40px 15px;
+  }
+
+  .mbtlist img {
+	width: 100%;
+	height: 235px;
+	border-radius: 10px 10px 0 0;
+	
+  }
+
+  .mbtlist .detail-wrapper {
+	margin: 0 20px;
+	width: unset;
+  }
+
+  /* BLOG PAGE */
+  
+  body.item-view .date-outer {
+    width: var(--mobileContainerWidth);
+  }
+  
+  .blog-popular-posts-container .title {
+    width: var(--mobileContainerWidth);
+  }
+  
+  .blog-popular-posts-container .widget-content ul {
+    width: var(--mobileContainerWidth);
+  }
+
+  section.post:nth-of-type(3) {
+	display: none;
+  }
+  
+
+  /* SEARCH PAGE */  
+
+  body.search-view .blog-container .date-outer {
+    width: var(--mobileContainerWidth);
+  }
+
+  /* LABEL PAGE */
+  
+  body.label-view .blog-container .date-outer {
+    width: var(--mobileContainerWidth);
+  }
+
+  footer {
+	width: var(--mobileContainerWidth);
+  }
+}
+
 
 @media screen and (min-width: 708px) and (max-width: 883px) {
 
@@ -1288,11 +1365,72 @@ font-weight: bold;
   /* POPULAR POSTS HOME PAGE */
 
   .PopularPosts .widget-content {
-	margin: 96px auto 40px auto;
+	margin: 100px auto 40px auto;
+    width: var(--mobileContainerWidth);
+  }
+
+  /* RECENT POSTS HOME PAGE */
+
+  .recent-post-card .widget-content {
+    width: var(--mobileContainerWidth);
+  }
+  
+  .recent-posts {
+    width: var(--mobileContainerWidth);
+  }
+
+  .mbtlist li {
+	display: inline-block;
+    min-width: unset;
+	width: unset;
+	margin: 40px 15px;
+  }
+
+  .mbtlist img {
+	width: 100%;
+	height: 235px;
+	border-radius: 10px 10px 0 0;
+	
+  }
+
+  .mbtlist .detail-wrapper {
+	margin: 0 20px;
+	width: unset;
+  }
+
+  /* BLOG PAGE */
+  
+  body.item-view .date-outer {
+    width: var(--mobileContainerWidth);
+  }
+  
+  .blog-popular-posts-container .title {
+    width: var(--mobileContainerWidth);
+  }
+  
+  .blog-popular-posts-container .widget-content ul {
+    width: var(--mobileContainerWidth);
   }
 
   section.post:nth-of-type(3) {
 	display: none;
+  }
+  
+
+  /* SEARCH PAGE */  
+
+  body.search-view .blog-container .date-outer {
+    width: var(--mobileContainerWidth);
+  }
+
+  /* LABEL PAGE */
+  
+  body.label-view .blog-container .date-outer {
+    width: var(--mobileContainerWidth);
+  }
+
+  footer {
+	width: var(--mobileContainerWidth);
   }
 }
 
@@ -1559,7 +1697,8 @@ font-weight: bold;
   /* POPULAR POSTS HOME PAGE */
 
   .PopularPosts .widget-content {
-	margin: 96px auto 40px auto;
+    width: var(--mobileContainerWidth);
+	margin: 100px auto 40px auto;
 	display: block;
 	box-sizing: border-box;
     padding-top: 1px;
@@ -1571,6 +1710,14 @@ font-weight: bold;
   }
 
   /* RECENT POSTS HOME PAGE */
+
+  .recent-post-card .widget-content {
+    width: var(--mobileContainerWidth);
+  }
+  
+  .recent-posts {
+    width: var(--mobileContainerWidth);
+  }
 
   .mbtlist li {
 	display: inline-block;
@@ -1589,6 +1736,43 @@ font-weight: bold;
   .mbtlist .detail-wrapper {
 	margin: 0 20px;
 	width: unset;
+  }
+
+  /* RECENT POSTS HOME PAGE */
+
+  .recent-post-detail-section {
+	display: block;
+  }
+
+  /* BLOG POST PAGE */
+  
+  body.item-view .date-outer {
+    width: var(--mobileContainerWidth);
+  }
+  
+  .blog-popular-posts-container .title {
+    width: var(--mobileContainerWidth);
+  }
+  
+  .blog-popular-posts-container .widget-content ul {
+    width: var(--mobileContainerWidth);
+  }
+  
+  
+  /* SEARCH PAGE */
+  
+  body.search-view .blog-container .date-outer {
+    width: var(--mobileContainerWidth);
+  }
+  
+  /* LABEL PAGE */
+  
+  body.label-view .blog-container .date-outer {
+    width: var(--mobileContainerWidth);
+  }
+
+  footer {
+	width: var(--mobileContainerWidth);
   }
 }
 
@@ -2059,7 +2243,7 @@ var ListBlogLink = window.location.hostname;
 var ListCount = 5;
 var ChrCount = 500;
 var TitleCount = 66;
-var ImageSize = 200;
+var ImageSize = 500;
 //################ Function Start
 function mbtlist(json) {
 document.write(&#39;&lt;ul class=&quot;mbtlist&quot;&gt;&#39;);
