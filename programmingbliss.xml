@@ -4,6 +4,9 @@
   <head>
     <meta charset='UTF-8'/>
     <meta content='width=device-width, initial-scale=1.0' name='viewport'/>
+    <!-- Start cookieyes banner --> 
+    <script id='cookieyes' src='https://cdn-cookieyes.com/client_data/d0875b70aabab6482e89e738/script.js' type='text/javascript'/> 
+    <!-- End cookieyes banner -->
     <title><data:blog.pageTitle/></title>
     
     <b:skin><![CDATA[
@@ -12,6 +15,7 @@
 
 html {
   --containerWidth: 95vw;
+  scroll-padding-top: 123px;
 }
 
 body {
@@ -29,6 +33,27 @@ body {
   display: block;
 }
 
+.arrow {
+  border: solid #fff;
+  border-width: 0 8px 8px 0;
+  display: inline-block;
+  padding: 3px;
+  width: 28px;
+  height: 28px;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  filter: drop-shadow(4px 5px 8px #03141b);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  filter: drop-shadow(-6px -3px 8px #03141b);
+}
+
 /* HEADER SECTION */
 
 header {
@@ -38,7 +63,7 @@ header {
   right: 0;
   margin: 0;
   background-color: #03141b;
-  z-index: 1;
+  z-index: 5;
   box-sizing: border-box;
 }
 
@@ -103,7 +128,7 @@ ul {
 .search-icon {
   background: #fff;
   position: relative;
-  z-index: 1;
+  z-index: 5;
 }
 
 .search-icon:hover {
@@ -146,6 +171,33 @@ ul {
   background: #81b3a5;
   border: 1px solid #81b3a5;
   box-shadow: 3px 7px 12px -1px rgba(136, 136, 136, 0.8);
+}
+
+/* FOOTER SECTION */
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  width: var(--containerWidth);
+}
+
+.legal h3,
+.contact h3 {
+  margin-block-start: 10px;
+  margin-block-end: 0;
+}
+
+.legal ul,
+.contact ul {
+  list-style: none;
+  margin-block-start: 10px;
+  margin-block-end: 20px;
+}
+
+.legal ul li a,
+.contact ul li a {
+  text-decoration: none;
+  color: #fff;
 }
 
 /* POPULAR POST SECTION */
@@ -212,9 +264,18 @@ section.post {
   color: #03141b;
 }
 
+body.home-page .post-labels {
+  font-size: 0;
+}
+
+.post-label ~ .post-label::before {
+  content: ', '
+}
+
 .genre-date .post-labels a {
   text-decoration: none;
   color: gray;
+  font-size: 1rem;
 }
 
 .genre-date .date {
@@ -368,9 +429,67 @@ body.item-view .post-body .separator:nth-of-type(1) {
   display: none;
 }
 
+body.item-view .post-outer .post-body p:last-of-type {
+  color: #666666;
+  font-style: italic;
+  text-align: center;
+  font-size: small;
+}
+
+body.item-view .post-outer .post-body p:last-of-type a {
+  text-decoration: none;
+  color: #666666;
+}
+
+/* LEGAL DOCUMENT PAGES */
+
+body.item-view .post-outer .post-body .legal-document p {
+  margin-block-start: unset;
+  margin-block-end: unset;
+  margin: 20px 0;
+  line-height: 1.75;
+}
+
+body.item-view .post-outer .post-body .legal-document p:nth-of-type(1) {
+  display: unset;
+}
+
+body.item-view .post-outer .post-body .legal-document p:last-of-type {
+  color: unset;
+  font-style: unset;
+  text-align: unset;
+  font-size: unset;
+}
+
+body.item-view .post-outer .post-body .legal-document p:last-of-type a {
+  text-decoration: unset;
+  color: unset;
+}
+
+body.item-view .post-outer .post-body .legal-document > section > ul {
+  list-style-type: disc;
+  padding-left: 30px;
+}
+
+body.item-view .post-outer .post-body .legal-document > ol > li > section > ul > li {
+  margin-left: 35px;
+}
+
+body.item-view .post-outer .post-body .legal-document > ol > li > section > ul > ul {
+  list-style-type: square;
+}
+
+body.item-view .post-outer .post-body .legal-document > ol > li > section > ul > ul > li {
+  margin-left: 70px;
+}
+
 /* POST FOOTER SECTION */
 
-.post-outer .post-footer {
+.post-outer .post-footer .post-footer-coffee {
+  text-align: center;
+}
+
+.post-outer .post-footer .post-footer-line {
   display: none;
 }
 
@@ -659,6 +778,88 @@ body.label-view .blog-container .post-outer .search-post-body p:nth-of-type(1) {
   display: none;
 }
 
+/* CONTACT FORM */
+
+.contact-form-container {
+  background: #fff;
+  color: #03141b;
+  margin: -25px auto 0 auto;
+}
+
+.contact-form-container .contact-form-wrapper {
+  max-width: 650px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding-bottom: 45px;
+}
+
+.contact-form-container .form-section {
+  padding: 10px 0;
+}
+
+.contact-form-container .heading {
+  font-size: 1.5rem;
+}
+
+.contact-form-container label,
+.contact-form-container input,
+.contact-form-container select,
+.contact-form-container textarea {
+  display: block;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+}
+
+.contact-form-container label {
+  font-weight: bold;
+}
+
+.contact-form-container input,
+.contact-form-container select,
+.contact-form-container textarea {
+  padding: 12px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: solid 1px #03141b;
+  color: #4f5b5f;
+  width: 100%;
+  margin: 10px 0;
+  font-size: 1.25rem;
+}
+
+.contact-form-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form-container .required::after {
+  content: "*";
+  color: red;
+}
+
+.contact-form-email, .contact-form-email-message {
+  max-width: 650px;
+  height: inherit;
+}
+
+.contact-form-container .caution {
+  text-align: center;
+  color: #4f5b5f;
+}
+
+.contact-form-container .submit-button input[type=submit] {
+  background: #81b3a5;
+  color: #03141b;
+  border: none;
+  border-radius: 30px;
+  width: fit-content;
+  box-sizing: border-box;
+  padding: 11px 32px;
+  margin: 0 auto;
+  height: fit-content;
+}
+
+
 /*############Recent Posts Widget##################*/
 
 .mbtlist {
@@ -673,9 +874,22 @@ body.label-view .blog-container .post-outer .search-post-body p:nth-of-type(1) {
   box-shadow: 3px 7px 12px -1px #888888;
 }
 
+.mbtlist li > div> p {
+  position: absolute;
+  bottom: -10px;
+  margin-left: 50%;
+
+}
+
 .mbtlist .detail-wrapper {
-	margin-left: 20px;
+  margin-left: 20px;
   position: relative;
+  width: 100%;
+}
+
+.mbtlist .detail-wrapper a {
+  text-decoration: none;
+  color: #03141b;
 }
 
 .mbtlist .detail-wrapper h2 {
@@ -693,6 +907,10 @@ body.label-view .blog-container .post-outer .search-post-body p:nth-of-type(1) {
 }
 
 .mbtlist .detail-wrapper .snippet {
+  text-overflow: clip;
+  white-space: normal;
+  overflow: hidden;
+  height: 100px;
 }
 
 .mbtlist .detail-wrapper .snippet p {
@@ -742,7 +960,7 @@ body.label-view .blog-container .post-outer .search-post-body p:nth-of-type(1) {
   text-decoration:none; 
   color: #03141b;
   position: relative;
-  z-index: 1;
+  z-index: 5;
 }
 
 .mbtlist .imore a {
@@ -760,7 +978,620 @@ body.label-view .blog-container .post-outer .search-post-body p:nth-of-type(1) {
 }
 
 /*------ CSS3 Tooltip Shortcode -------------*/
-.tooltip1{outline:none;text-decoration:none!important;position:relative;color: orange!important; font-weight: bold;}.tooltip1:hover {border-bottom: none;}.tooltip1 strong{line-height:30px}.tooltip1 > span{max-width:300px;width:115px;padding:5px 8px;opacity:0;bottom:170%;left:0px; visibility:hidden;z-index:10;position:absolute;font-family:helvetica;font-size:12px;font-weight:bold;border-radius:2px;box-shadow:2px 2px 5px #999;-webkit-transition-property:opacity,margin-top,visibility,margin-left;-webkit-transition-duration:0.4s,0.3s,0.4s,.3s;-webkit-transition-timing-function:ease-in-out,ease-in-out,ease-in-out,ease-in-out;transition-property:opacity,margin-top,visibility,margin-left;transition-duration:0.4s,0.3s,0.4s,.3s;transition-timing-function:ease-in-out,ease-in-out,ease-in-out,ease-in-out}.tooltip1 > span img{float:right;width:110px;margin:0 0 30px 10px;padding: 0;border: none;}.tooltip1:hover > span{opacity:1;text-decoration:none;visibility:visible;overflow:visible;display:inline;margin-left:-90px}.tooltip1 span b{width:15px;height:15px;right:25px;bottom:-9px;display:block;position:absolute;-webkit-transform:rotate(-45deg);-moz-transform:rotate(-45deg);-o-transform:rotate(-45deg);transform:rotate(-45deg);display:none\0/;*display:none}.tooltip1 > span{color:#fff;background:orange;border:1px solid #ffffff}.tooltip1 span b{background:orange;border-bottom:1px solid #ffffff;border-left:1px solid #ffffff}
+.tooltip1{
+outline:none;
+text-decoration:none!important;
+position:relative;
+color: orange!important; 
+font-weight: bold;
+}
+.tooltip1:hover {border-bottom: none;}
+.tooltip1 strong{line-height:30px}.tooltip1 > span{max-width:300px;width:115px;padding:5px 8px;opacity:0;bottom:170%;left:0px; visibility:hidden;z-index:10;position:absolute;font-family:helvetica;font-size:12px;font-weight:bold;border-radius:2px;box-shadow:2px 2px 5px #999;-webkit-transition-property:opacity,margin-top,visibility,margin-left;-webkit-transition-duration:0.4s,0.3s,0.4s,.3s;-webkit-transition-timing-function:ease-in-out,ease-in-out,ease-in-out,ease-in-out;transition-property:opacity,margin-top,visibility,margin-left;transition-duration:0.4s,0.3s,0.4s,.3s;transition-timing-function:ease-in-out,ease-in-out,ease-in-out,ease-in-out}.tooltip1 > span img{float:right;width:110px;margin:0 0 30px 10px;padding: 0;border: none;}.tooltip1:hover > span{opacity:1;text-decoration:none;visibility:visible;overflow:visible;display:inline;margin-left:-90px}.tooltip1 span b{width:15px;height:15px;right:25px;bottom:-9px;display:block;position:absolute;-webkit-transform:rotate(-45deg);-moz-transform:rotate(-45deg);-o-transform:rotate(-45deg);transform:rotate(-45deg);display:none\0/;*display:none}.tooltip1 > span{color:#fff;background:orange;border:1px solid #ffffff}.tooltip1 span b{background:orange;border-bottom:1px solid #ffffff;border-left:1px solid #ffffff}
+
+/* PRINT VIEW */
+
+@media print {
+  * {
+	box-shadow: none !important;
+  }
+
+  body {
+  background-color: #fff;
+  }
+
+  header {
+	display: none;
+  }
+
+  body.item-view .cky-btn-revisit-wrapper {
+	display: none;
+  }
+
+  body.item-view .blog-container {
+	margin-top: 0;
+  }
+
+  body.item-view .blog-container .blog-posts img:nth-of-type(1) {
+	display: block;
+    max-width:100%;
+    max-height:230px;
+    width: auto;
+    height: auto; 
+	margin: 0 auto;
+  }
+  
+  body.item-view .blog-popular-posts-container {
+	display: none;
+  }
+
+  body.item-view footer {
+	display: none;
+  }
+  
+}
+
+/* MOBILE VIEW */
+
+@media screen and (min-width: 708px) and (max-width: 883px) {
+
+  /* HEADER NAV BAR */
+
+  header {
+    padding: 6px;
+    position: fixed;
+  }
+
+  .menu-list-main {
+	height: 100%;
+	overflow-y: scroll;
+  }
+
+  .navbar,
+  .secondary-navbar-section-wrapper {
+    display: none;
+  }
+
+  .nav-btn {
+    display: flex;
+    justify-content: flex-end;
+    text-align: right;
+    padding: 1px;
+  }
+
+  .nav-icon {
+    width: 60px;
+    height: 45px;
+    position: relative;
+    margin: 20px;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+    z-index: 6;
+  }
+
+  .nav-icon span {
+    display: block;
+    position: absolute;
+    height: 9px;
+    width: 100%;
+    background: #fff;
+    box-shadow: 3px 1px 10px 1px #03141b;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: 0.25s ease-in-out;
+    -moz-transition: 0.25s ease-in-out;
+    -o-transition: 0.25s ease-in-out;
+    transition: 0.25s ease-in-out;
+  }
+
+  .nav-icon span:nth-child(1) {
+    top: 0px;
+    -webkit-transform-origin: left center;
+    -moz-transform-origin: left center;
+    -o-transform-origin: left center;
+    transform-origin: left center;
+  }
+
+  .nav-icon span:nth-child(2) {
+    top: 18px;
+    -webkit-transform-origin: left center;
+    -moz-transform-origin: left center;
+    -o-transform-origin: left center;
+    transform-origin: left center;
+  }
+
+  .nav-icon span:nth-child(3) {
+    top: 36px;
+    -webkit-transform-origin: left center;
+    -moz-transform-origin: left center;
+    -o-transform-origin: left center;
+    transform-origin: left center;
+  }
+
+  .nav-icon.open span:nth-child(1) {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    top: -3px;
+    left: 8px;
+  }
+
+  .nav-icon.open span:nth-child(2) {
+    width: 0%;
+    opacity: 0;
+  }
+
+  .nav-icon.open span:nth-child(3) {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    top: 39px;
+    left: 8px;
+  }
+
+  .nav-btn-content {
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    display: none;
+    margin: -1vh -1vw 0 0;
+    padding: 0;
+    position: absolute;
+    background-color: rgba(34, 76, 72, 0.95);
+    box-shadow: 6px 6px 14px #03141b;
+    z-index: 5;
+  }
+
+  .nav-btn-content li {
+    font-size: 7vw;
+    color: #fff;
+    text-shadow: 4px 5px 8px #03141b;
+  }
+
+  .nav-btn-content li a {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    text-shadow: 4px 5px 8px #03141b;
+    padding: 2vh 0;
+    position: relative;
+  }
+
+  .nav-btn-content li a:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 5px;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  .nav-btn-content li a:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  .topics-expand {
+	display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    text-shadow: 4px 5px 8px #03141b;
+    padding: 2vh 0;
+    position: relative;
+  }
+
+  .topics-expand:after {
+	content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 5px;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  .topics-expand:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  .nav-btn-content li .menu-list-second {
+    position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(34, 76, 72, 1);
+	box-sizing: border-box;
+	padding-top: 20px;
+  }
+
+  .arrow-left {
+	display: inline-block;
+    color: #fff;
+    position: relative;
+  }
+
+  .arrow-left:after {
+	content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 5px;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  .arrow-left:hover:after {
+	transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  .BlogSearch {
+	position: relative;
+	opacity: 1;
+	pointer-events: auto;
+	width: calc(55vw + 94.47px);
+	margin: 20px auto;
+	
+  }
+
+  .BlogSearch .title {
+	display: none;
+  }
+
+  .BlogSearch input[type="text"] {
+	width: 55vw;
+	box-shadow: 3px 7px 12px -1px #03141b;
+  }
+
+  .BlogSearch input[type="submit"] {
+	box-shadow: 3px 7px 12px -1px #03141b;
+	padding: 10px 24px;
+	margin-right: unset;
+  }
+
+  form.gsc-search-box {
+	margin-bottom: 100px;
+  }
+
+  .visible {
+    display: block;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  /* POPULAR POSTS HOME PAGE */
+
+  .PopularPosts .widget-content {
+	margin: 96px auto 40px auto;
+  }
+
+  section.post:nth-of-type(3) {
+	display: none;
+  }
+}
+
+@media screen and (max-width: 707px) {
+
+  /* HEADER NAV BAR */
+
+  header {
+    padding: 6px;
+    position: fixed;
+  }
+
+  .menu-list-main {
+	height: 100%;
+	overflow-y: scroll;
+  }
+
+  .arrow {
+	width: 17px;
+	height: 17px;
+  }
+
+  .navbar,
+  .secondary-navbar-section-wrapper {
+    display: none;
+  }
+
+  .nav-btn {
+    display: flex;
+    justify-content: flex-end;
+    text-align: right;
+    padding: 1px;
+  }
+
+  .nav-icon {
+    width: 60px;
+    height: 45px;
+    position: relative;
+    margin: 20px;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+    z-index: 6;
+  }
+
+  .nav-icon span {
+    display: block;
+    position: absolute;
+    height: 9px;
+    width: 100%;
+    background: #fff;
+    box-shadow: 3px 1px 10px 1px #03141b;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: 0.25s ease-in-out;
+    -moz-transition: 0.25s ease-in-out;
+    -o-transition: 0.25s ease-in-out;
+    transition: 0.25s ease-in-out;
+  }
+
+  .nav-icon span:nth-child(1) {
+    top: 0px;
+    -webkit-transform-origin: left center;
+    -moz-transform-origin: left center;
+    -o-transform-origin: left center;
+    transform-origin: left center;
+  }
+
+  .nav-icon span:nth-child(2) {
+    top: 18px;
+    -webkit-transform-origin: left center;
+    -moz-transform-origin: left center;
+    -o-transform-origin: left center;
+    transform-origin: left center;
+  }
+
+  .nav-icon span:nth-child(3) {
+    top: 36px;
+    -webkit-transform-origin: left center;
+    -moz-transform-origin: left center;
+    -o-transform-origin: left center;
+    transform-origin: left center;
+  }
+
+  .nav-icon.open span:nth-child(1) {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    top: -3px;
+    left: 8px;
+  }
+
+  .nav-icon.open span:nth-child(2) {
+    width: 0%;
+    opacity: 0;
+  }
+
+  .nav-icon.open span:nth-child(3) {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    top: 39px;
+    left: 8px;
+  }
+
+  .nav-btn-content {
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    display: none;
+    margin: -1vh -1vw 0 0;
+    padding: 0;
+    position: absolute;
+    background-color: rgba(34, 76, 72, 0.95);
+    box-shadow: 6px 6px 14px #03141b;
+    z-index: 5;
+  }
+
+  .nav-btn-content li {
+    font-size: 7vw;
+    color: #fff;
+    text-shadow: 4px 5px 8px #03141b;
+  }
+
+  .nav-btn-content li a {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 7vw;
+    color: #fff;
+    text-shadow: 4px 5px 8px #03141b;
+    padding: 2vh 0;
+    position: relative;
+    color: #fff;
+  }
+
+  .nav-btn-content li a:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 5px;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  .nav-btn-content li a:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  .topics-expand {
+	display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    text-shadow: 4px 5px 8px #03141b;
+    padding: 2vh 0;
+    position: relative;
+  }
+
+  .topics-expand:after {
+	content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 5px;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  .topics-expand:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  .nav-btn-content li .menu-list-second {
+    position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(34, 76, 72, 1);
+	box-sizing: border-box;
+	padding-top: 20px;
+  }
+
+  .arrow-left {
+	display: inline-block;
+    color: #fff;
+    position: relative;
+  }
+
+  .arrow-left:after {
+	content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 5px;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  .arrow-left:hover:after {
+	transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  .BlogSearch {
+	position: relative;
+	opacity: 1;
+	pointer-events: auto;
+	width: calc(55vw + 94.47px);
+	margin: 20px auto;
+	
+  }
+
+  .BlogSearch .title {
+	display: none;
+  }
+
+  .BlogSearch input[type="text"] {
+	width: 55vw;
+	box-shadow: 3px 7px 12px -1px #03141b;
+  }
+
+  .BlogSearch input[type="submit"] {
+	box-shadow: 3px 7px 12px -1px #03141b;
+	padding: 10px 24px;
+	margin-right: unset;
+  }
+
+  form.gsc-search-box {
+	margin-bottom: 100px;
+  }
+
+  .visible {
+    display: block;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  /* POPULAR POSTS HOME PAGE */
+
+  .PopularPosts .widget-content {
+	margin: 96px auto 40px auto;
+	display: block;
+	box-sizing: border-box;
+    padding-top: 1px;
+  }
+
+  section.post {
+	width: unset;
+	margin: 40px 15px;
+  }
+
+  /* RECENT POSTS HOME PAGE */
+
+  .mbtlist li {
+	display: inline-block;
+    min-width: unset;
+	width: unset;
+	margin: 40px 15px;
+  }
+
+  .mbtlist img {
+	width: 100%;
+	height: 235px;
+	border-radius: 10px 10px 0 0;
+	
+  }
+
+  .mbtlist .detail-wrapper {
+	margin: 0 20px;
+	width: unset;
+  }
+}
+
     ]]></b:skin>
     
   	<script async='async' src='https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js' type='text/javascript'/>
@@ -846,8 +1677,92 @@ body.label-view .blog-container .post-outer .search-post-body p:nth-of-type(1) {
           <!-- end of secondary-navbar-section -->
         </div>
         <!-- end of secondary-navbar-section-wrapper -->
+        
+        <nav class='nav-btn'>
+          <div class='nav-icon'>
+            <span/>
+            <span/>
+            <span/>
+          </div>
+          <!-- end of nav-icon -->
+          <div class='nav-btn-content hidden'>
+            <ul class='menu-list-main'>
+              <li><a class='menu-item' href='https://janettecampbell.com/'>Home</a></li>
+              <li>
+                <a class='menu-item' href='https://janettecampbell.com/#about-tag'>About</a>
+              </li>
+              <li>
+                <a class='menu-item' href='https://janettecampbell.com/#portfolio'>Portfolio</a>
+              </li>
+              <li>
+                <a class='menu-item' href='https://janettecampbell.com/#certification'>Certification</a>
+              </li>
+              <li>
+                <a class='menu-item' href='https://janettecampbell.com/#resume'>Resume</a>
+              </li>
+              <li>
+                <a class='menu-item' href='https://janettecampbell.com/#contact'>Contact</a>
+              </li>
+              <li>
+                <a class='menu-item' href='https://blog.janettecampbell.com/'>Blog</a>
+              </li>
+              
+              <li> <div class='topics-expand'>Topics<i class='arrow right'/></div>
+              <li>
+                <b:section id='mobile-search-bar' name='Search Bar' showaddelement='false'>
+                  <b:widget id='BlogSearch2' locked='true' title='Search This Blog' type='BlogSearch'>
+                    <b:includable id='main'>
+    <!-- only display title if it's non-empty -->
+    <b:if cond='data:title != &quot;&quot;'>
+      <h2 class='title'><data:title/></h2>
+    </b:if>
+
+    <div class='widget-content'>
+      <div expr:id='data:widget.instanceId + &quot;_form&quot;'>
+        <form class='gsc-search-box' expr:action='data:blog.searchUrl'>
+          <b:attr cond='not data:view.isPreview' name='target' value='_top'/>
+          <table cellpadding='0' cellspacing='0' class='gsc-search-box'>
+            <tbody>
+              <tr>
+                <td class='gsc-input'>
+                  <input autocomplete='off' class='gsc-input' expr:value='data:view.isSearch ? data:view.search.query.escaped : &quot;&quot;' name='q' size='10' title='search' type='text'/>
+                </td>
+                <td class='gsc-search-button'>
+                  <input class='gsc-search-button' expr:value='data:messages.search' title='search' type='submit'/>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+      </div>
+    </div>
+
+    <b:include name='quickedit'/>
+  </b:includable>
+                  </b:widget>
+                </b:section>
+              </li>
+                <ul class='menu-list-second hidden'>
+                  <li class='arrow-left'><i class='arrow left'/></li>
+                  <li><a href='https://blog.janettecampbell.com/search/label/JavaScript'>JavaScript</a></li>
+                  <li><a href='https://blog.janettecampbell.com/search/label/Java'>Java</a></li>
+                  <li><a href='https://blog.janettecampbell.com/search/label/CPP'>C++</a></li>
+                  <li><a href='https://blog.janettecampbell.com/search/label/HTML%20%26%20CSS'>HTML &amp; CSS</a></li>
+                  <li><a href='https://blog.janettecampbell.com/search/label/PHP'>PHP</a></li>
+                  <li><a href='https://blog.janettecampbell.com/search/label/iOS'>iOS</a></li>
+                  <li><a href='https://blog.janettecampbell.com/search/label/Android'>Android</a></li>
+                </ul>
+              </li>
+            </ul>
+            
+          </div>
+          <!-- end of nav-btn-content -->
+        </nav>
+        
       </header>
       <!-- END OF HEADER SECTION -->
+      
+      
       
       <b:if cond='data:view.isHomepage'>
         <div class='wrapper'>
@@ -1005,7 +1920,7 @@ body.label-view .blog-container .post-outer .search-post-body p:nth-of-type(1) {
               <b:includable id='postLabels'>
   <span class='byline post-labels'>
         <b:loop values='data:post.labels' var='label'>
-      		<a expr:href='data:label.url' rel='tag'><data:label.name/></a><b:if cond='not data:label.isLast'>,</b:if>
+      		<a class='post-label' expr:href='data:label.url' rel='tag'><data:label.name/></a><!--<b:if cond='not data:label.isLast'>, (<data:label.isLast/>)</b:if>-->
     </b:loop>
   </span>
 </b:includable>
@@ -1142,7 +2057,7 @@ body.label-view .blog-container .post-outer .search-post-body p:nth-of-type(1) {
 //#################### Defaults
 var ListBlogLink = window.location.hostname;
 var ListCount = 5;
-var ChrCount = 396;
+var ChrCount = 500;
 var TitleCount = 66;
 var ImageSize = 200;
 //################ Function Start
@@ -1156,11 +2071,15 @@ var listing= ListImage = ListUrl = ListTitle = ListImage = ListContent = ListCon
 //################### Category
 if (json.feed.entry[i].category != null)
 {
-for (var k = 0; k &lt; json.feed.entry[i].category.length; k++) {
-    ListTag += json.feed.entry[i].category[k].term;
-if(k &lt; json.feed.entry[i].category.length-1)
-{ ListTag += &quot;, &quot;;}
-}
+  for (var k = 0; k &lt; json.feed.entry[i].category.length; k++) {
+                    
+      ListTag += json.feed.entry[i].category[k].term;
+                    
+      if(k &lt; json.feed.entry[i].category.length - 1)
+      { 
+        ListTag += &quot;, &quot;;
+      }
+  }
 }
 
 //################### URL
@@ -1257,9 +2176,11 @@ var listing = &quot;&lt;li class=&#39;node&quot;+[i]+&quot;&#39; &gt;&lt;a href=
 &quot;, &quot;
 + Y +
 
-&quot;&lt;/span&gt;&lt;/div&gt;&lt;span class=&#39;snippet&#39;&gt;&quot;+ListContent+&quot;&lt;p&gt;&lt;a href=&quot;
+&quot;&lt;/span&gt;&lt;/div&gt;&lt;a href=&quot;
 +ListUrl+
-&quot; class=&#39;imore&#39;&gt;more &#187;&lt;/a&gt;&lt;/p&gt;&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;&quot;;
+&quot;&gt;&lt;span class=&#39;snippet&#39;&gt;&quot;+ListContent+&quot;&lt;p&gt;&lt;/a&gt;&lt;a href=&quot;
++ListUrl+
+&quot; class=&#39;imore&#39;&gt;  &lt;/a&gt;&lt;/p&gt;&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;&quot;;
 document.write(listing);
 }
 document.write(&quot;&lt;div class=&#39;itotal&#39;&gt;&lt;span&gt; &lt;a href=&#39;&quot;+ListBlogLink+&quot;/search&#39;&gt;View all &lt;font&gt;&quot;+TotalPosts+&quot;&lt;/font&gt; posts&lt;/a&gt;&lt;/span&gt;&lt;/div&gt;&lt;/ul&gt;&quot;);
@@ -1716,13 +2637,20 @@ document.getElementById(&quot;mbtloading1&quot;).style.display = &quot;none&quot
               
             </div>
           </div>
-
-          <div class='post-body entry-content' expr:id='&quot;post-body-&quot; + data:post.id' itemprop='articleBody'>
-            <data:post.body/>
+		 
+           <b:if cond='data:blog.url != data:blog.canonicalHomepageUrl + &quot;p/contact-form.html&quot;'> 
+             
+             <div class='post-body entry-content' expr:id='&quot;post-body-&quot; + data:post.id' itemprop='articleBody'>
+           
+            <data:post.body/>            
+          
             <div style='clear: both;'/> <!-- clear for photos floats -->
           </div>
-
+             
+           </b:if>
+          
           <div class='post-footer'>
+            
             <div class='post-footer-line post-footer-line-1'>
               <span class='post-author vcard'>
                 <b:if cond='data:top.showAuthor'>
@@ -1846,10 +2774,10 @@ document.getElementById(&quot;mbtloading1&quot;).style.display = &quot;none&quot
       <b:if cond='data:blog.searchQuery||data:blog.searchLabel'>
       	<div class='search-post-body entry-content' expr:id='&quot;post-body-&quot; + data:post.id' expr:itemprop='(data:blog.metaDescription ? &quot;&quot; : &quot;description &quot;) + &quot;articleBody&quot;'>
           <b:if cond='data:post.link or (data:post.url and data:blog.url != data:post.url)'>
-       			 <a expr:href='data:post.link ? data:post.link : data:post.url'>
-      <b:eval expr='snippet(data:post.longSnippet, {length: 300, linebreaks: false, links: false})'/>
-          </a>
-      		</b:if>
+       		<a expr:href='data:post.link ? data:post.link : data:post.url'>
+      		  <b:eval expr='snippet(data:post.longSnippet, {length: 300, linebreaks: false, links: false})'/>
+            </a>
+      	  </b:if>
       <div style='clear: both;'/> <!-- clear for photos floats -->
     </div>
       </b:if>
@@ -1871,8 +2799,24 @@ document.getElementById(&quot;mbtloading1&quot;).style.display = &quot;none&quot
       </div>
     </b:if>
 
+    <b:if cond='data:blog.url != data:blog.canonicalHomepageUrl + &quot;p/privacy-policy.html&quot;'>
+      <b:if cond='data:blog.url != data:blog.canonicalHomepageUrl + &quot;p/cookie-policy.html&quot;'>
+        <b:if cond='data:blog.url != data:blog.canonicalHomepageUrl + &quot;p/contact-form.html&quot;'>
+          <b:if cond='data:blog.url != data:blog.canonicalHomepageUrl + &quot;p/terms-of-use.html&quot;'>
+            <b:if cond='data:blog.url != data:blog.canonicalHomepageUrl + &quot;p/contact-form-submitted.html&quot;'>
     <div class='post-footer'>
-    <div class='post-footer-line post-footer-line-1'>
+      
+      <div class='post-footer-coffee'>
+        <p>
+          If this post has left you feeling inspired or equipped with new knowledge, why not consider fueling my creativity with a small coffee purchase?
+        </p>
+        <p>
+          Every sip will bring me one step closer to producing more engaging content!
+        </p>
+        <script data-coffee-color='#ffffff' data-color='#FFDD00' data-emoji='' data-font='Cookie' data-font-color='#000000' data-name='bmc-button' data-outline-color='#000000' data-slug='janettecampbell' data-text='Buy me a coffee' src='https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js' type='text/javascript'/>
+      </div>
+      
+    <div class='post-footer-line post-footer-line-1'>      
       <span class='post-author vcard'>
         <b:if cond='data:top.showAuthor'>
           <data:top.authorLabel/>
@@ -1951,6 +2895,11 @@ document.getElementById(&quot;mbtloading1&quot;).style.display = &quot;none&quot
         </div>
       </b:if>
     </div>
+            </b:if>
+            </b:if>
+          </b:if>
+        </b:if>
+    </b:if>
   </div>
 </b:includable>
         <b:includable id='postQuickEdit' var='post'>
@@ -2187,7 +3136,9 @@ document.getElementById(&quot;mbtloading1&quot;).style.display = &quot;none&quot
   </script>
 </b:includable>
         <b:includable id='threaded_comments' var='post'>
-  <div class='comments' id='comments'>
+          
+           <b:if cond='data:blog.url != data:blog.canonicalHomepageUrl + &quot;p/contact-form.html&quot;'>       
+         	 <div class='comments' id='comments'>
     <a name='comments'/>
     <h4><data:post.commentLabelFull/>:</h4>
 
@@ -2218,6 +3169,8 @@ document.getElementById(&quot;mbtloading1&quot;).style.display = &quot;none&quot
     </div>
     </div>
   </div>
+           </b:if>      
+          
 </b:includable>
       </b:widget>
     </b:section>
@@ -2498,6 +3451,7 @@ document.getElementById(&quot;mbtloading1&quot;).style.display = &quot;none&quot
         </div>
         <!-- end of blog-popular-posts-container -->
         
+        <!-- END OF PAGE FOOTER -->
       </div>
       <!-- end of wrapper -->
       
@@ -2528,13 +3482,107 @@ document.getElementById(&quot;mbtloading1&quot;).style.display = &quot;none&quot
     	
     </b:if>
     
+    <b:if cond='data:blog.url == data:blog.canonicalHomepageUrl + &quot;p/contact-form.html&quot;'>
+      <div class='contact-form-container'>
+        
+        <div class='contact-form-wrapper'>
+          <div class='heading'>
+            <p>
+              Let us know your questions, suggestions, and concerns by filling out
+              the contact form below.
+            </p>
+          </div>
+          <script type='text/javascript'>var submitted=false;</script>
+		  <iframe id='hidden_iframe' name='hidden_iframe' onload='if(submitted)  {window.location=&quot;https://blog.janettecampbell.com/p/contact-form-submitted.html&quot;;}' style='display: none;'/>
+          <form action='https://docs.google.com/forms/d/e/1FAIpQLSfyhDBC8fmL-0oc4Nyf-dEdhbj6SRC_7WapaQPIDDiqzXCIFQ/formResponse' class='contact-form' method='post' onsubmit='submitted=true;' target='hidden_iframe'>
+        <div class='name form-section'>
+          <label class='required' for='name'>Name</label>
+          <input id='first-name' name='entry.433135098' placeholder='First' required='required' type='text'/>
+          <input id='last-name' name='entry.891195303' placeholder='Last' required='required' type='text'/>
+        </div>
+        <div class='email form-section'>
+          <label class='required' for='email'>Email</label>
+          <input id='email' name='emailAddress' pattern='^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$' placeholder='Email' required='required' type='email'/>
+        </div>
+        <div class='subject form-section'>
+          <label class='required' for='subject'>What can we help you with?</label>
+          <select id='email-subject' name='entry.1213057406' required='required'>
+            <option value='Topic Request'>Topic Request</option>
+            <option value='Feedback'>Feedback</option>
+            <option value='Terms of Use, Privacy Policy, Cookie Policy'>
+              Terms of Use, Privacy Policy, Cookie Policy
+            </option>
+            <option value='Other'>Other</option>
+          </select>
+        </div>
+        <div class='message form-section'>
+          <label class='required' for='message'>Message</label>
+          <textarea autocomplete='off' id='message' name='entry.1913870008' placeholder='Message...' required='required' rows='4'/>
+          <p class='caution'>Never submit sensitive information such as passwords.</p>
+        </div>
+        <div class='submit-button'>
+          <input type='submit' value='Send Message'/>
+        </div>
+      </form>
+        </div>
+    </div>
+    </b:if>
     
+    <!-- STOP HERE -->
+    
+    <div class='footer-wrapper'>
+      <footer>
+          <div class='left-column'/>
+          <div class='center-column'>
+            <div class='legal'>
+              <h3>Legal</h3>
+              <ul>
+                <li>
+                  <a href='https://blog.janettecampbell.com/p/terms-of-use.html'>Terms of Use</a>
+                </li>
+                <li>
+                  <a href='https://blog.janettecampbell.com/p/privacy-policy.html'>Privacy Policy</a>
+                </li>
+                <li>
+                  <a href='https://blog.janettecampbell.com/p/cookie-policy.html'>Cookie Policy</a>
+                </li>
+              </ul>
+            </div>
+            <!-- end of legal -->
+          </div>
+          <!-- end of center-column -->
+          <div class='right-column'>
+            <div class='contact'>
+              <h3>Get in Touch</h3>
+              <ul>
+                <li>
+                  <a href='https://blog.janettecampbell.com/p/contact-form.html'>Contact Form</a>
+                </li>
+              </ul>
+            </div>
+            <!-- end of contact -->
+          </div>
+          <!-- end of right-column -->
+        
+      </footer>
+    </div>
+    <!-- end of footer-wrapper -->
+    
+    <!-- END OF FOOTER SECTION -->
     <script>
       // ============= Declaration of elements =================
       const searchIcon = document.querySelector(&quot;.search-icon&quot;);
       const searchContainer = document.querySelector(&quot;.BlogSearch&quot;);
       const postLabels = document.querySelectorAll(&quot;.post-labels a&quot;);
       const itagArray = document.querySelectorAll(&quot;.itag&quot;);
+      const navIcon = document.querySelector(&quot;.nav-icon&quot;);
+      const navBtnContent = document.querySelector(&quot;.nav-btn-content&quot;);
+      const navBtnContentLiA = document.querySelector(&quot;.nav-btn-content li a&quot;);
+      const visible = document.querySelector(&quot;.visible&quot;);
+      const hidden = document.querySelector(&quot;.hidden&quot;);
+      const menuListSecond = document.querySelector(&quot;.menu-list-second&quot;);
+	  const topicsExpand = document.querySelector(&quot;.topics-expand&quot;);
+      const arrowLeft = document.querySelector(&quot;.arrow-left&quot;);
 
 
       // =====================================================
@@ -2588,7 +3636,83 @@ document.getElementById(&quot;mbtloading1&quot;).style.display = &quot;none&quot
       addEventListener(&quot;load&quot;, changeCPPRecentPosts);
       
 
+      // =====================================================
+      // ============== Show menu on click ===================
+      // =====================================================
+
+      // ================ Switch from visible to not visible menu click ===================
+      const menuClick = (e) =&gt; {
+        e.preventDefault();
+        if (navBtnContent.classList.contains(&quot;hidden&quot;)) {
+          navBtnContent.classList.remove(&quot;hidden&quot;);
+          navBtnContent.classList.add(&quot;visible&quot;);
+          navIcon.classList.add(&quot;open&quot;);
+        } else {
+          navBtnContent.classList.remove(&quot;visible&quot;);
+          navBtnContent.classList.add(&quot;hidden&quot;);
+          navIcon.classList.remove(&quot;open&quot;);
+        }
+      };
+
+      navIcon.addEventListener(&quot;click&quot;, menuClick);
       
+      // =====================================================
+      // ============== Show mobile submenu on click =========
+      // =====================================================
+
+      // ================ Switch from visible to not visible submenu click ===================
+      const menuListSecondClick = (e) =&gt; {
+        e.preventDefault();
+
+        if (menuListSecond.classList.contains(&quot;hidden&quot;)) {
+          menuListSecond.classList.remove(&quot;hidden&quot;);
+        } else {
+          menuListSecond.classList.add(&quot;hidden&quot;);
+        }
+      };
+
+	  topicsExpand.addEventListener(&quot;click&quot;, menuListSecondClick);
+      
+      const menuListSecondHideClick = (e) =&gt; {
+        e.preventDefault();
+
+        if (!menuListSecond.classList.contains(&quot;hidden&quot;)) {
+          menuListSecond.classList.add(&quot;hidden&quot;);
+        } else {
+          menuListSecond.classList.remove(&quot;hidden&quot;);
+        }
+      };
+
+      arrowLeft.addEventListener(&quot;click&quot;, menuListSecondHideClick);
+
+      // ================ Switch from visible to not visible on link click ===============
+      const notVisible = () =&gt; {
+        navBtnContent.classList.remove(&quot;visible&quot;);
+        navBtnContent.classList.add(&quot;hidden&quot;);
+      };
+
+      const linkClick = () =&gt; {
+        notVisible();
+        navIcon.classList.remove(&quot;open&quot;);
+      };
+
+      menuItem.forEach((item) =&gt; {
+        item.addEventListener(&quot;click&quot;, linkClick);
+      });
+
+      // ==================== Switch from visible to not visible on click anywhere =======================
+      const anywhereClick = (e) =&gt; {
+        if (!navBtnContentLiA.contains(e.target) &amp;&amp; !navIcon.contains(e.target)) {
+          notVisible();
+          navIcon.classList.remove(&quot;open&quot;);
+        }
+      };
+
+      window.addEventListener(&quot;click&quot;, anywhereClick);
+      
+
+
+
     </script>
     
     
