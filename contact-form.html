@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="contact-form-container">
+      <div class="heading">
+        <p>
+          Let us know your questions, suggestions, and concerns by filling out
+          the contact form below.
+        </p>
+      </div>
+      <form onsubmit="sendEmail(); reset(); return false">
+        <div class="name form-section">
+          <label for="name" class="required">Name</label>
+          <input type="text" id="first-name" placeholder="First" required />
+          <input type="text" id="last-name" placeholder="Last" required />
+        </div>
+        <div class="email form-section">
+          <label for="email" class="required">Email</label>
+          <input
+            type="email"
+            id="email"
+            pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
+            required
+          />
+        </div>
+        <div class="subject form-section">
+          <label for="subject" class="required"
+            >What can we help you with?</label
+          >
+          <select id="email-subject" name="email-subject" required>
+            <option value="Topic Request">Topic Request</option>
+            <option value="Feedback">Feedback</option>
+            <option value="Terms of Use, Privacy Policy, Cookie Policy">
+              Terms of Use, Privacy Policy, Cookie Policy
+            </option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="message form-section">
+          <label for="message" class="required">Message</label>
+          <textarea name="message" id="message" rows="4" required></textarea>
+          <p>Never submit sensitive information such as passwords.</p>
+        </div>
+        <div class="submit-button">
+          <input type="submit" value="Send Message" />
+        </div>
+      </form>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+      const sendEmail = () => {
+        Email.send({
+          Host: "smtp.elasticemail.com",
+          Username: "username",
+          Password: "password",
+          To: "them@website.com",
+          From: "you@isp.com",
+          Subject: document.getElementById("email-subject").value,
+          Body: "And this is the body",
+        }).then((message) => alert(message));
+      };
+    </script>
+  </body>
+</html>
