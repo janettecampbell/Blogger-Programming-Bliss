@@ -1292,7 +1292,7 @@ font-weight: bold;
     transform-origin: bottom left;
   }
 
-  .nav-btn-content li .menu-list-second {
+  .nav-btn-content .menu-list-second {
     position: absolute;
 	top: 0;
 	width: 100%;
@@ -1624,7 +1624,7 @@ font-weight: bold;
     transform-origin: bottom left;
   }
 
-  .nav-btn-content li .menu-list-second {
+  .nav-btn-content .menu-list-second {
     position: absolute;
 	top: 0;
 	width: 100%;
