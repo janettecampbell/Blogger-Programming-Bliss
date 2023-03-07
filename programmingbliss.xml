@@ -1796,7 +1796,7 @@ font-weight: bold;
           <a href='https://janettecampbell.com/#top'>Home</a>
           <a href='https://janettecampbell.com/#about-tag'>About</a>
           <a href='https://janettecampbell.com/#portfolio'>Portfolio</a>
-          <a href='https://janettecampbell.com/#certification'>Certification</a>
+          <!-- <a href='https://janettecampbell.com/#certification'>Certification</a> -->
           <a href='https://janettecampbell.com/#resume'>Resume</a>
           <a href='https://janettecampbell.com/#contact'>Contact</a>
           <a href='https://blog.janettecampbell.com'>Blog</a>
@@ -1878,9 +1878,11 @@ font-weight: bold;
               <li>
                 <a class='menu-item' href='https://janettecampbell.com/#portfolio'>Portfolio</a>
               </li>
-              <li>
+              <!-- 
+			  <li>
                 <a class='menu-item' href='https://janettecampbell.com/#certification'>Certification</a>
-              </li>
+              </li> 
+			  -->
               <li>
                 <a class='menu-item' href='https://janettecampbell.com/#resume'>Resume</a>
               </li>
