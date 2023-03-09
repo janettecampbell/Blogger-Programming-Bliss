@@ -975,7 +975,6 @@ body.label-view .blog-container .post-outer .search-post-body p:nth-of-type(1) {
 
 .mbtlist .itotal {color:#333;  padding:5px 10px; border:1px solid #eee;}
 .mbtlist .itotal a {font-family:oswald; font-size:12px; font-weight:normal; color:#0080ff; text-decoration:none}
-.mbtlist .itotal span:before {content:'\f07c';}
 .mbtlist .itotal span font {padding:0px 3px; color:#333; font-family:georgia; font-size:15px; font-weight:bold}
 #mbtloading1{ margin: 20% auto;
   background: url('http://downloads.mybloggertricks.com/Spin%20and%20pulsate.gif') no-repeat left center;
