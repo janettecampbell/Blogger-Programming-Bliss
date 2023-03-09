@@ -609,7 +609,6 @@ body.search-view .blog-container .blog-posts {
 body.search-view .blog-container .date-outer {
   width: var(--containerWidth);
   margin: 0 auto;
-
 }
 
 body.search-view .blog-container .post-header {
@@ -620,7 +619,7 @@ body.search-view .blog-container .post-header {
 body.search-view .blog-container .post-header img {
   object-fit: cover;
   height: 100%;
-  min-width: 300px;
+  width: 300px;
   
 }
 
@@ -653,6 +652,10 @@ body.search-view .blog-container .post-outer {
 
 body.search-view .blog-container .post-outer .post {
   height: 100%;
+}
+
+body.search-view .blog-container .post-outer .post-body {
+  display:block;
 }
 
 body.search-view .blog-container .post-outer .search-post-body {
@@ -2061,6 +2064,7 @@ font-weight: bold;
               <b:includable id='headerByline'>
   <b:if cond='data:widgets.Blog.first.headerByline'>
     <div class='post-header'>
+      
       <div class='post-header-line-1'>
         <b:with value='&quot;header-1&quot;' var='regionName'>
           <b:include data='data:widgets.Blog.first.headerByline.items' name='bylineRegion'/>
@@ -2825,6 +2829,7 @@ document.getElementById(&quot;mbtloading1&quot;).style.display = &quot;none&quot
           </b:if>
 
           <div class='post-header'>
+            
             <div class='post-header-line-1'>
               <span class='post-timestamp'>
         <b:if cond='data:top.showTimestamp'>
@@ -2931,6 +2936,7 @@ document.getElementById(&quot;mbtloading1&quot;).style.display = &quot;none&quot
     <b:if cond='data:post.firstImageUrl'>
       <meta expr:content='data:post.firstImageUrl' itemprop='image_url'/>
     </b:if>
+    
     <meta expr:content='data:blog.blogId' itemprop='blogId'/>
     <meta expr:content='data:post.id' itemprop='postId'/>
 
@@ -2938,7 +2944,8 @@ document.getElementById(&quot;mbtloading1&quot;).style.display = &quot;none&quot
     
 
     <div class='post-header'>
-      <b:if cond='data:blog.searchQuery||data:blog.searchLabel'>
+      <!-- This is the one for the label and search pages -->
+      <b:if cond='data:blog.searchQuery||data:blog.searchLabel||data:view.isSearch'>
       		<b:if cond='data:post.link or (data:post.url and data:blog.url != data:post.url)'>
        			 <a expr:href='data:post.link ? data:post.link : data:post.url'>
                    <img expr:alt='data:post.title' expr:src='resizeImage(data:post.thumbnailUrl, 1600)'/>
@@ -2972,7 +2979,7 @@ document.getElementById(&quot;mbtloading1&quot;).style.display = &quot;none&quot
      </div>
       <!-- end of post-timestamp -->
       
-      <b:if cond='data:blog.searchQuery||data:blog.searchLabel'>
+      <b:if cond='data:blog.searchQuery||data:blog.searchLabel||data:view.isSearch'>
       	<div class='search-post-body entry-content' expr:id='&quot;post-body-&quot; + data:post.id' expr:itemprop='(data:blog.metaDescription ? &quot;&quot; : &quot;description &quot;) + &quot;articleBody&quot;'>
           <b:if cond='data:post.link or (data:post.url and data:blog.url != data:post.url)'>
        		<a expr:href='data:post.link ? data:post.link : data:post.url'>
@@ -3472,6 +3479,7 @@ document.getElementById(&quot;mbtloading1&quot;).style.display = &quot;none&quot
               <b:includable id='headerByline'>
   <b:if cond='data:widgets.Blog.first.headerByline'>
     <div class='post-header'>
+      
       <div class='post-header-line-1'>
         <b:with value='&quot;header-1&quot;' var='regionName'>
           <b:include data='data:widgets.Blog.first.headerByline.items' name='bylineRegion'/>
