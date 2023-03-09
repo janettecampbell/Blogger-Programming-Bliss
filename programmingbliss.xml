@@ -2260,7 +2260,7 @@ var ListBlogLink = window.location.hostname;
 var ListCount = 5;
 var ChrCount = 500;
 var TitleCount = 66;
-var ImageSize = 500;
+var ImageSize = 1000;
 //################ Function Start
 function mbtlist(json) {
 document.write(&#39;&lt;ul class=&quot;mbtlist&quot;&gt;&#39;);
